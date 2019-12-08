@@ -1,32 +1,34 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="box">
+        这里是单文件组件
+        <!-- 使用子组件的标签名 -->
+        <hello></hello>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+// 引入当前路径下叫 son.vue 的组件
+import sonVue from './son.vue'
+// 一个文件就是一个组件，通过 export default 导出一个对象
+export default {
+    // 注册引入的组件
+    components : {
+        // 之后组件名当做标签名使用
+        hello : sonVue
+    },
+    data () {
+        return {
+            name : 'hello'
+        }
+    },
 }
 
-#nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: yellowgreen;
     }
-  }
-}
 </style>
